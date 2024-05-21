@@ -31,5 +31,9 @@ ylabel('Ritmo Cardíaco (bpm)');
 figure; % Asegura que se cree una nueva ventana de figura
 plot(tiempo, ritmo_enfermo); 
 title('Ritmo Cardíaco de una Persona con Insuficiencia Cardíaca');
+
+
+
 xlabel('Tiempo (segundos)');
 ylabel('Ritmo Cardíaco (bpm)');
+
