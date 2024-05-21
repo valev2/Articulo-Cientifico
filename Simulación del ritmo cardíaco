@@ -1,0 +1,35 @@
+% Simulación del ritmo cardíaco en MATLAB
+
+% Definir parámetros para una persona sana y una con insuficiencia cardíaca
+frecuencia_sana = 70; % Frecuencia cardíaca promedio de una persona sana en bpm
+frecuencia_enferma = 90; % Frecuencia cardíaca promedio de una persona con insuficiencia cardíaca en bpm
+
+% Crear una función para simular el ritmo cardíaco con variabilidad
+function ritmo = generar_ritmo_cardiaco(frecuencia_base)
+    % Simular 1 minuto de ritmo cardíaco
+    tiempo = 0:0.80:60; % 60 segundos con paso de 0.01 segundos
+    % Generar ritmo cardíaco con variabilidad
+    variabilidad = 0.05 * frecuencia_base; % La variabilidad es un porcentaje de la frecuencia base
+    ritmo = frecuencia_base + variabilidad * sin(2 * pi * frecuencia_base / 60 * tiempo);
+end
+
+% Simular el ritmo cardíaco para una persona sana y una con insuficiencia cardíaca
+ritmo_sano = generar_ritmo_cardiaco(frecuencia_sana);
+ritmo_enfermo = generar_ritmo_cardiaco(frecuencia_enferma);
+
+% Crear gráficas de comparación
+tiempo = 0:0.80:60; % 60 segundos con paso de 0.01 segundos
+
+% Gráfica para el ritmo cardíaco de una persona sana
+figure; % Asegura que se cree una nueva ventana de figura
+plot(tiempo, ritmo_sano);
+title('Ritmo Cardíaco de una Persona Sana');
+xlabel('Tiempo (segundos)');
+ylabel('Ritmo Cardíaco (bpm)');
+
+% Gráfica para el ritmo cardíaco de una persona con insuficiencia cardíaca
+figure; % Asegura que se cree una nueva ventana de figura
+plot(tiempo, ritmo_enfermo); 
+title('Ritmo Cardíaco de una Persona con Insuficiencia Cardíaca');
+xlabel('Tiempo (segundos)');
+ylabel('Ritmo Cardíaco (bpm)');
